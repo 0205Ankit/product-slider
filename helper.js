@@ -5,7 +5,7 @@ export const bigSlider = () => {
   const prevButton = document.querySelector("#prev_button");
   const nextButton = document.querySelector("#next_button");
 
-  let interval = 4000;
+  let interval = 3500;
 
   const checkCounter = () => {
     if (counter === 0) {
