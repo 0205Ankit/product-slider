@@ -15,15 +15,6 @@
   margin: 0;
 }
 
-.mobile_image {
-  display: none;
-  width: 100%;
-}
-
-.desktop_image {
-  width: 100%;
-}
-
 .button-container {
   position: absolute;
   width: 98%;
@@ -42,22 +33,35 @@
 }
 
 .nav_buttons {
+  position: absolute;
   font-size: 2rem;
-  background-color: transparent;
   outline: none;
   cursor: pointer;
   border: none;
   padding: 2px 10px 2px 8px;
-  background-color: white;
   border-radius: 100%;
   z-index: 20;
-  &:disabled {
-    backdrop-filter: brightness(50%);
-  }
 }
 
 #next_button {
   padding: 2px 8px 2px 10px;
+  top: 50%;
+  right: 0;
+  transform: translate(-50%, -50%);
+  &:disabled {
+    cursor: not-allowed;
+    backdrop-filter: brightness(0.5);
+  }
+}
+
+#prev_button {
+  top: 50%;
+  left: 0;
+  transform: translate(50%, -50%);
+  &:disabled {
+    backdrop-filter: brightness(0.5);
+    cursor: not-allowed;
+  }
 }
 
 .nav_buttons > img {
@@ -81,17 +85,17 @@
   width: 90%;
   margin: auto;
   display: flex;
+  flex-shrink: 0;
   flex-wrap: wrap;
   justify-content: space-around;
 }
 
 .mini_slider_container {
   flex-basis: 24%;
-  width: 200px;
+  /* min-width: 24%; */
 }
 
 .mini_slider_box {
-  width: 100%;
   padding-bottom: 80px;
 }
 
@@ -111,11 +115,18 @@
   color: #6a7280;
 }
 
-.mini_slider_swiper_slide {
-  width: 100%;
-  border-radius: 8px;
-  border: 2px solid #f5f5f5;
-  overflow: hidden;
+.mini-slider {
+  overflow-x: hidden;
+}
+
+.mini-swiper-slide {
+  min-width: 100%;
+}
+
+.mini-swiper-wrapper {
+  display: flex;
+  /* width: 100%; */
+  transition: all 0.5s ease-out;
 }
 
 .mini_slider_image {
@@ -123,7 +134,12 @@
   min-height: 350px;
   object-fit: cover;
   width: 100%;
+  border-radius: 8px;
 }
+
+/* .mini-swiper-slide {
+  width: 100%;
+} */
 
 .swiper-paginations-bullet {
   height: 40px;
@@ -139,7 +155,30 @@
   gap: 8px;
 }
 
-@media only screen and (max-width: 600px) {
+.slider {
+  overflow-x: hidden;
+}
+
+.slider-wrapper {
+  display: flex;
+  transition: all 0.8s ease-out;
+}
+
+.slider-content {
+  width: 100%;
+  margin-right: 2%;
+}
+
+.mobile_image {
+  display: none;
+  width: 100vw;
+}
+
+.desktop_image {
+  width: 100vw;
+}
+
+@media only screen and (max-width: 700px) {
   .desktop_image {
     display: none;
   }
@@ -151,7 +190,13 @@
 
 @media only screen and (max-width: 1200px) {
   .mini_slider_image {
-    max-height: 300px;
-    min-height: 300px;
+    max-height: 280px;
+    min-height: 280px;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .flex_container {
+    flex-direction: column;
   }
 }

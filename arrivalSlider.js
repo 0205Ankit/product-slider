@@ -1,20 +1,18 @@
 export const arrivalSlider = (name, images, number) => {
   return `
     <div class="mini_slider_box">
-        <div class="secondSwiper">
-            <div class="swiper-wrapper">
+        <div class="mini-slider">
+            <div class="mini-swiper-wrapper">
                 ${images
                   .map((item, index) => {
                     return `<div
                     key=${index}
-                    class="swiper-slide"
+                    class="mini-swiper-slide"
                     >
-                        <div class="mini_slider_swiper_slide">
-                            <img
-                                class="mini_slider_image"
-                                src="${item}"
-                            />
-                        </div>
+                      <img
+                        class="mini_slider_image"
+                        src="${item}"
+                      />
                     </div>`;
                   })
                   .join("")}
