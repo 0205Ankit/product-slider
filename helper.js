@@ -5,6 +5,8 @@ export const bigSlider = () => {
   const prevButton = document.querySelector("#prev_button");
   const nextButton = document.querySelector("#next_button");
 
+  let interval = 4000;
+
   const checkCounter = () => {
     if (counter === 0) {
       prevButton.disabled = true;
@@ -26,8 +28,9 @@ export const bigSlider = () => {
     if (counter > 3) {
       counter = 0;
     }
+    checkCounter();
     slide.style.transform = `translateX(-${counter * 102}%)`;
-  }, 2000);
+  }, interval);
 
   nextButton.addEventListener("click", function (e) {
     counter = counter + 1;
